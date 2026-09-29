@@ -1,0 +1,41 @@
+TASK 1 - DATA QUALITY REPORT
+Dataset: ApexPlanet_DataAnalytics_Dataset.xlsx
+Sheet: Sales_Dataset
+
+Rows: 1000
+Columns: 12
+
+MISSING VALUES
+- Age: 20
+- City: 13
+- Other columns: 0
+
+DUPLICATES
+- Fully duplicated rows: 0
+- Repeated Order_ID values: 1 IDs
+- Rows with repeated Order_ID: 9
+Decision: Do not delete these rows automatically because the repeated Order_ID records contain different dates/customers/products/amounts. A Record_ID and duplicate flag were added instead.
+
+FORMATTING
+- Order_Date successfully parsed: 1000 / 1000
+- Text fields were stripped of leading/trailing spaces.
+- Numeric fields retained as numeric.
+
+VALIDATION
+- Total_Sales = Quantity * Unit_Price matches within 0.01 for:
+  1000 / 1000 rows.
+
+OUTLIER / RANGE CHECK
+- Age range: 18.0 to 65.0
+- Quantity range: 1 to 10
+- Unit_Price range: 145.78 to 49997.53
+- Total_Sales range: 437.34 to 493677.50
+
+CLEANING DECISIONS
+1. Parsed Order_Date as a real date.
+2. Filled missing Age with the dataset median (41).
+3. Filled missing City with 'Unknown' rather than inventing a city.
+4. Added Record_ID to uniquely identify each row.
+5. Added Order_ID_Duplicate_Flag to preserve information about repeated IDs.
+6. Added Total_Sales_Calculated and Sales_Check for validation.
+7. Added Order_Year, Order_Month, Order_Month_Name, and Age_Group for analysis.
