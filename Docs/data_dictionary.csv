@@ -1,0 +1,21 @@
+Column_Name,Description,Data_Type,Business_Relevance_or_Notes
+Order_ID,Original order identifier,Text/String,"Unique order identifier; source contains repeated values, so not used as row key."
+Order_Date,Date on which the order was placed,Date,Used for time-based analysis.
+Customer_ID,Customer identifier,Text/String,Identifies the customer.
+Customer_Name,Customer name,Text/String,Customer display name.
+Age,Customer age,Integer/Float,Customer age; 20 missing values were filled with median age (41).
+Gender,Customer gender,Category,Categorical demographic field.
+City,Customer city,Category,Customer city; 13 missing values were replaced with 'Unknown'.
+Product,Product purchased,Category,Product name.
+Category,Product category,Category,Higher-level product grouping.
+Quantity,Number of units purchased,Integer,Transaction quantity.
+Unit_Price,Price per unit,Decimal,Price of one unit.
+Total_Sales,Original transaction sales amount,Decimal,Provided sales amount.
+Record_ID,Unique row identifier added during cleaning,Integer,Created because Order_ID repeats in the source.
+Order_ID_Duplicate_Flag,Whether the source Order_ID occurs more than once,Boolean,Flags repeated source order IDs without deleting valid-looking rows.
+Total_Sales_Calculated,Quantity multiplied by Unit_Price,Decimal,Independent validation of Total_Sales.
+Sales_Check,Whether original and calculated sales agree,Boolean,Quality-control check; all 1000 rows matched within 0.01.
+Order_Year,Year extracted from Order_Date,Integer,Feature for yearly analysis.
+Order_Month,Month number extracted from Order_Date,Integer,Feature for monthly analysis.
+Order_Month_Name,Month name extracted from Order_Date,Category,Readable monthly feature.
+Age_Group,Age band derived from Age,Category,Feature for demographic analysis.
